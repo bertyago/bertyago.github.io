@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marta Moya Ibéricos | Dehesa El Torilejos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde: #4F6251;
+            --verde-oscuro: #354038;
+            --verde-claro: #8FA191;
+            --crema: #F5F0E8;
+            --crema-oscura: #EAE4D6;
+            --blanco: #FFFFFF;
+            --negro: #1C1C1C;
+            --gris: #5A5A5A;
+            --dorado: #C4A26B;
+            --dorado-claro: #E8D5A3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            color: var(--negro);
+            background-color: var(--crema);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: var(--blanco);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(79,98,81,0.12);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+        .logo-circle {
+            width: 48px; height: 48px;
+            border: 1.5px solid var(--verde);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .logo-circle svg { width: 26px; height: 26px; }
+        .logo-texts { line-height: 1.2; }
+        .logo-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.18em;
+            color: var(--verde-oscuro);
+            display: block;
+            font-weight: 500;
+        }
+        .logo-sub {
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            color: var(--gris);
+            text-transform: uppercase;
+        }
+
+        nav ul { display: flex; list-style: none; gap: 2.5rem; }
+        nav a {
+            text-decoration: none;
+            color: var(--negro);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1px;
+            background: var(--dorado);
+            transition: width 0.3s;
+        }
+        nav a:hover { color: var(--verde); }
+        nav a:hover::after { width: 100%; }
+
+        .header-right { display: flex; align-items: center; gap: 1.5rem; }
+
+        .cart-btn {
+            position: relative;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.4rem;
+        }
+        .cart-btn svg { width: 22px; height: 22px; stroke: var(--negro); transition: stroke 0.3s; }
+        .cart-btn:hover svg { stroke: var(--verde); }
+        .cart-badge {
+            position: absolute;
+            top: -4px; right: -4px;
+            background: var(--verde);
+            color: var(--blanco);
+            font-size: 0.65rem;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .mobile-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+        }
+        .mobile-btn span {
+            display: block;
+            width: 24px; height: 1.5px;
+            background: var(--negro);
+            transition: all 0.3s;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('img_hero.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(28,28,28,0.45) 0%,
+                rgba(28,28,28,0.25) 50%,
+                rgba(28,28,28,0.55) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--blanco);
+            max-width: 780px;
+            padding: 2rem;
+        }
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            letter-spacing: 0.15em;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        .hero-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+        .hero-line {
+            width: 60px; height: 1px;
+            background: var(--dorado);
+            margin: 2rem auto;
+        }
+        .hero-desc {
+            font-size: 1rem;
+            opacity: 0.85;
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            text-decoration: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.35s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-gold {
+            background: var(--dorado);
+            color: var(--blanco);
+        }
+        .btn-gold:hover { background: #a8883a; }
+        .btn-outline {
+            background: transparent;
+            color: var(--blanco);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); }
+        .btn-verde {
+            background: var(--verde);
+            color: var(--blanco);
+        }
+        .btn-verde:hover { background: var(--verde-oscuro); }
+
+        /* ── BAND ── */
+        .band {
+            background: var(--verde-oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 1.2rem 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .band span { margin: 0 2rem; opacity: 0.8; }
+        .band strong { color: var(--dorado-claro); opacity: 1; }
+
+        /* ── HISTORIA ── */
+        .historia {
+            background: var(--blanco);
+            padding: 7rem 2.5rem;
+        }
+        .historia-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .historia-img-wrap {
+            position: relative;
+        }
+        .historia-img-wrap img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            display: block;
+        }
+        .historia-img-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: -20px; right: -20px;
+            width: 60%;  height: 60%;
+            border: 2px solid var(--dorado);
+            z-index: -1;
+        }
+        .historia-label {
+            position: absolute;
+            bottom: 2rem; left: -2rem;
+            background: var(--verde-oscuro);
+            color: var(--blanco);
+            padding: 1.2rem 1.8rem;
+        }
+        .historia-label strong {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            display: block;
+            color: var(--dorado-claro);
+        }
+        .historia-label span { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
+        .historia-texto .eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--dorado);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .historia-texto h2 {
+            font-size: 2.8rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 1.8rem;
+            line-height: 1.2;
+        }
+        .historia-texto p {
+            color: var(--gris);
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+        .stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--crema-oscura);
+        }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--verde);
+            line-height: 1;
+        }
+        .stat-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris); margin-top: 0.3rem; }
+
+        /* ── GALERIA ── */
+        .galeria {
+            background: var(--crema-oscura);
+            padding: 5rem 0;
+        }
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            max-height: 500px;
+        }
+        .galeria-item {
+            overflow: hidden;
+            position: relative;
+        }
+        .galeria-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .galeria-item:hover img { transform: scale(1.05); }
+        .galeria-item:first-child { grid-column: span 2; }
+        .galeria-item:first-child img { height: 500px; }
+
+        /* ── PRODUCTS SECTION ── */
+        .productos-sec {
+            background: var(--crema);
+            padding: 7rem 2.5rem;
+        }
+        .sec-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .sec-header .eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--dorado);
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        .sec-header h2 {
+            font-size: 2.8rem;
+            color: var(--verde-oscuro);
+        }
+        .sec-header .divider {
+            width: 50px; height: 1px;
+            background: var(--verde-claro);
+            margin: 1.2rem auto 0;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 3.5rem;
+            border: 1px solid var(--verde-claro);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .tab {
+            padding: 0.8rem 2rem;
+            background: none;
+            border: none;
+            border-right: 1px solid var(--verde-claro);
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--gris);
+            transition: all 0.3s;
+        }
+        .tab:last-child { border-right: none; }
+        .tab.active, .tab:hover {
+            background: var(--verde);
+            color: var(--blanco);
+        }
+
+        .productos-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .producto-card {
+            background: var(--blanco);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .producto-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.09);
+        }
+        .prod-img {
+            height: 220px;
+            background: var(--crema-oscura);
+            position: relative;
+            overflow: hidden;
+        }
+        .prod-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .producto-card:hover .prod-img img { transform: scale(1.04); }
+        .prod-tag {
+            position: absolute;
+            top: 0.8rem; left: 0.8rem;
+            background: var(--verde);
+            color: var(--blanco);
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            font-weight: 500;
+        }
+        .prod-tag.premium { background: var(--dorado); }
+        .prod-tag.exclusivo { background: var(--verde-oscuro); }
+
+        .prod-info { padding: 1.3rem 1.5rem 1.5rem; }
+        .prod-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--negro);
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+        .prod-peso { font-size: 0.78rem; color: var(--gris); margin-bottom: 1rem; }
+        .prod-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--crema-oscura);
+        }
+        .prod-precio {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            color: var(--verde-oscuro);
+        }
+        .prod-precio .unit { font-size: 0.85rem; color: var(--gris); font-family: 'Raleway', sans-serif; }
+        .prod-precio .p100g { display: block; font-size: 0.78rem; color: var(--dorado); font-family: 'Raleway', sans-serif; }
+        .btn-add {
+            padding: 0.55rem 1.1rem;
+            background: var(--verde);
+            color: var(--blanco);
+            border: none;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-add:hover { background: var(--verde-oscuro); }
+
+        /* ── PROCESO ── */
+        .proceso-sec {
+            background: var(--verde-oscuro);
+            color: var(--blanco);
+            padding: 7rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .proceso-sec::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('img_cerdos.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.07;
+        }
+        .proceso-sec .sec-header h2 { color: var(--blanco); }
+        .proceso-sec .sec-header .divider { background: var(--dorado); }
+        .proceso-pasos {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .paso {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        .paso-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: rgba(196,162,107,0.25);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .paso-icon {
+            width: 64px; height: 64px;
+            border: 1px solid var(--dorado);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+        .paso-icon svg { width: 28px; height: 28px; stroke: var(--dorado); }
+        .paso h4 { font-size: 1.2rem; margin-bottom: 0.8rem; letter-spacing: 0.05em; }
+        .paso p { font-size: 0.87rem; opacity: 0.75; line-height: 1.7; }
+
+        /* ── CESTAS ── */
+        .cestas-sec {
+            background: var(--blanco);
+            padding: 7rem 2.5rem;
+        }
+        .cestas-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .cesta-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .cesta-card img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+        .cesta-card:hover img { transform: scale(1.04); }
+        .cesta-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(28,28,28,0.85), transparent);
+            padding: 2rem 1.5rem 1.5rem;
+            color: var(--blanco);
+        }
+        .cesta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+        .cesta-sub { font-size: 0.78rem; opacity: 0.8; }
+        .cesta-cta {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--dorado-claro);
+            font-weight: 500;
+        }
+
+        /* ── CONTACTO ── */
+        .contacto-sec {
+            background: var(--crema);
+            padding: 7rem 2.5rem;
+        }
+        .contacto-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+        .contacto-info .eyebrow { font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--dorado); display: block; margin-bottom: 0.8rem; }
+        .contacto-info h2 { font-size: 2.5rem; color: var(--verde-oscuro); margin-bottom: 1.5rem; }
+        .contacto-info p { color: var(--gris); margin-bottom: 2rem; font-size: 0.95rem; }
+        .contacto-dato {
+            display: flex; align-items: flex-start; gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .contacto-dato .ico {
+            width: 38px; height: 38px;
+            background: var(--verde);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .contacto-dato .ico svg { width: 18px; height: 18px; stroke: var(--blanco); }
+        .contacto-dato .txt { font-size: 0.9rem; color: var(--gris); line-height: 1.5; }
+        .contacto-dato .txt strong { display: block; color: var(--negro); font-weight: 500; margin-bottom: 0.2rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+        .pago-info {
+            background: var(--crema-oscura);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 3px solid var(--verde);
+        }
+        .pago-info h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--verde-oscuro); margin-bottom: 0.8rem; }
+        .pago-info p { font-size: 0.85rem; color: var(--gris); margin-bottom: 0.3rem; }
+
+        .form-card {
+            background: var(--blanco);
+            padding: 2.5rem;
+        }
+        .form-card h3 { font-size: 1.6rem; color: var(--verde-oscuro); margin-bottom: 1.5rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .fg { margin-bottom: 1.2rem; }
+        .fg label { display: block; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--negro); margin-bottom: 0.4rem; font-weight: 500; }
+        .fg input, .fg textarea, .fg select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--crema-oscura);
+            background: var(--crema);
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem;
+            color: var(--negro);
+            transition: border-color 0.3s;
+            outline: none;
+        }
+        .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--verde); }
+        .fg textarea { height: 120px; resize: none; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--verde-oscuro);
+            color: rgba(255,255,255,0.75);
+            padding: 5rem 2.5rem 2rem;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-brand .f-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.15em;
+            color: var(--blanco);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .footer-brand .f-sub { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--dorado-claro); text-transform: uppercase; }
+        .footer-brand p { margin-top: 1.2rem; font-size: 0.85rem; line-height: 1.8; }
+        .footer-col h4 { font-family: 'Raleway', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dorado-claro); margin-bottom: 1.2rem; font-weight: 600; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.6rem; }
+        .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.88rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--blanco); }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        /* ── CART ── */
+        .overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1500;
+        }
+        .overlay.open { display: block; }
+
+        .cart-panel {
+            position: fixed;
+            top: 0; right: -500px;
+            width: 440px;
+            height: 100vh;
+            background: var(--blanco);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.35s ease;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+        }
+        .cart-panel.open { right: 0; }
+
+        .cart-head {
+            padding: 1.8rem 2rem;
+            border-bottom: 1px solid var(--crema-oscura);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-head h3 { font-size: 1.5rem; color: var(--verde-oscuro); }
+        .cart-close {
+            background: none; border: none;
+            font-size: 1.6rem; cursor: pointer;
+            color: var(--gris); line-height: 1;
+            padding: 0.2rem 0.5rem;
+        }
+        .cart-body { flex: 1; overflow-y: auto; padding: 1.5rem 2rem; }
+        .cart-empty-state {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--gris);
+        }
+        .cart-empty-state svg { width: 50px; height: 50px; stroke: var(--verde-claro); margin-bottom: 1rem; }
+        .cart-empty-state p { font-size: 0.9rem; }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--crema-oscura);
+        }
+        .cart-item-img {
+            width: 65px; height: 65px;
+            background: var(--crema-oscura);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
+        .cart-item-body { flex: 1; }
+        .cart-item-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--negro); margin-bottom: 0.2rem; }
+        .cart-item-price { font-size: 0.8rem; color: var(--gris); margin-bottom: 0.5rem; }
+        .cart-item-qty { display: flex; align-items: center; gap: 0.7rem; }
+        .cart-item-qty button {
+            width: 26px; height: 26px;
+            background: var(--crema-oscura);
+            border: none; cursor: pointer;
+            font-size: 1rem; color: var(--negro);
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .cart-item-qty button:hover { background: var(--verde); color: var(--blanco); }
+        .cart-item-qty span { font-size: 0.9rem; min-width: 20px; text-align: center; }
+        .cart-item-del {
+            background: none; border: none;
+            font-size: 0.7rem; color: var(--gris);
+            cursor: pointer; margin-left: auto;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+        .cart-item-del:hover { color: #c00; }
+
+        .cart-foot {
+            padding: 1.5rem 2rem 2rem;
+            border-top: 1px solid var(--crema-oscura);
+        }
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 0.4rem;
+        }
+        .cart-note { font-size: 0.75rem; color: var(--gris); margin-bottom: 1.2rem; }
+        .btn-checkout {
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--verde);
+            color: var(--blanco);
+            border: none;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-checkout:hover { background: var(--verde-oscuro); }
+
+        /* ── CHECKOUT MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: var(--blanco);
+            width: 100%;
+            max-width: 620px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+        }
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .modal-head h2 { font-size: 2rem; color: var(--verde-oscuro); }
+        .modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gris); }
+        .modal-section { margin-bottom: 2rem; }
+        .modal-section h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--verde-oscuro); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--crema-oscura); }
+
+        .resumen-item { display: flex; justify-content: space-between; font-size: 0.88rem; color: var(--gris); padding: 0.4rem 0; }
+        .resumen-total { display: flex; justify-content: space-between; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--verde-oscuro); padding-top: 0.8rem; margin-top: 0.5rem; border-top: 1px solid var(--crema-oscura); }
+
+        .pay-opt {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--crema-oscura);
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .pay-opt.selected { border-color: var(--verde); background: rgba(79,98,81,0.04); }
+        .pay-opt input { margin-top: 3px; accent-color: var(--verde); }
+        .pay-opt-name { font-weight: 500; font-size: 0.9rem; color: var(--negro); }
+        .pay-opt-info { font-size: 0.8rem; color: var(--gris); margin-top: 0.2rem; }
+
+        /* ── WHATSAPP ── */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 2rem; right: 2rem;
+            width: 58px; height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 1200;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37,211,102,0.5);
+        }
+        .whatsapp-fab svg { width: 32px; height: 32px; }
+
+        /* ── NOTIFICATION ── */
+        .notif {
+            position: fixed;
+            bottom: 6rem; right: 2rem;
+            background: var(--verde-oscuro);
+            color: var(--blanco);
+            padding: 0.9rem 1.8rem;
+            font-size: 0.85rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.35s;
+            z-index: 5000;
+        }
+        .notif.show { transform: translateY(0); opacity: 1; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            nav { display: none; }
+            nav.open { display: block; position: absolute; top: 100%; left: 0; right: 0; background: var(--blanco); padding: 1.5rem 2rem; border-top: 1px solid var(--crema-oscura); }
+            nav.open ul { flex-direction: column; gap: 1rem; }
+            .mobile-btn { display: flex; }
+            .historia-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .historia-img-wrap::after { display: none; }
+            .historia-label { left: 0; }
+            .galeria-grid { grid-template-columns: repeat(2,1fr); }
+            .galeria-item:first-child { grid-column: span 2; }
+            .proceso-pasos { grid-template-columns: repeat(2,1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .contacto-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .cestas-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .band span { display: block; margin: 0.2rem 0; }
+            .galeria-grid { grid-template-columns: 1fr; }
+            .galeria-item:first-child { grid-column: span 1; }
+            .proceso-pasos { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .cart-panel { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#inicio" class="logo">
+      <div class="logo-circle">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" stroke="#4F6251" stroke-width="1.5"/>
+          <line x1="20" y1="5" x2="20" y2="10" stroke="#4F6251" stroke-width="1.5"/>
+          <path d="M15 16 Q20 28 25 16" stroke="#4F6251" stroke-width="1.5" fill="none"/>
+          <circle cx="20" cy="22" r="2" fill="#4F6251"/>
+        </svg>
+      </div>
+      <div class="logo-texts">
+        <span class="logo-name">MARTA MOYA IBÉRICOS</span>
+        <span class="logo-sub">Dehesa El Torilejos · Sevilla</span>
+      </div>
+    </a>
+
+    <button class="mobile-btn" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="mainNav">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#historia">Nuestra Historia</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#cestas">Cestas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <button class="cart-btn" onclick="toggleCart()" aria-label="Cesta">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+          <path d="M6 6h15l-1.5 9h-12z"/>
+          <circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/>
+          <path d="M6 6L5 3H2"/>
+        </svg>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Dehesa El Torilejos · Aznalcóllar · Sevilla</span>
+    <h1>MARTA MOYA<br>IBÉRICOS</h1>
+    <p class="hero-sub">Tradición familiar. Sabor auténtico.</p>
+    <div class="hero-line"></div>
+    <p class="hero-desc">Cerdos ibéricos de bellota criados en libertad en nuestra dehesa sevillana. Producción propia, limitada y artesanal.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="#productos" class="btn btn-gold">Ver Productos</a>
+      <a href="#historia" class="btn btn-outline">Nuestra Historia</a>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="band">
+  <span>🐷 <strong>100% Ibérico de Bellota</strong></span>
+  <span>🌿 Criado en libertad en nuestra dehesa</span>
+  <span>🏡 Producción familiar y artesanal</span>
+  <span>📦 Envío a toda España</span>
+</div>
+
+<!-- HISTORIA -->
+<section class="historia" id="historia">
+  <div class="historia-inner">
+    <div class="historia-img-wrap">
+      <img id="historiaImg" src="" alt="Cerdos ibéricos en la dehesa El Torilejos">
+      <div class="historia-label">
+        <strong>+50</strong>
+        <span>Años de tradición ganadera</span>
+      </div>
+    </div>
+    <div class="historia-texto">
+      <span class="eyebrow">Quiénes somos</span>
+      <h2>Generaciones dedicadas a la excelencia ibérica</h2>
+      <p>Nuestra familia lleva más de medio siglo dedicándose a la ganadería en las tierras de Sevilla. Ese saber hacer heredado nos ha llevado a crear nuestra propia marca: <strong>Marta Moya Ibéricos</strong>, con el orgullo de controlar todo el proceso desde el campo hasta la mesa.</p>
+      <p>En nuestra finca <em>Dehesa El Torilejos</em>, en Aznalcóllar, nuestros cerdos ibéricos 100% de bellota se crían en completa libertad, alimentándose de las bellotas de nuestras encinas centenarias durante la montanera, siguiendo el ciclo natural de la dehesa.</p>
+      <p>Una vez criados con el máximo cuidado, la carne se traslada a Aracena, en el corazón de la Sierra de Huelva, donde se produce y cura siguiendo métodos artesanales que garantizan la máxima calidad en cada pieza.</p>
+      <div class="stats">
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Ibérico de Bellota</div>
+        </div>
+        <div>
+          <div class="stat-num">+50</div>
+          <div class="stat-label">Años de tradición</div>
+        </div>
+        <div>
+          <div class="stat-num">2</div>
+          <div class="stat-label">Fincas propias</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<div class="galeria">
+  <div class="galeria-grid" id="galeriaGrid"></div>
+</div>
+
+<!-- PRODUCTOS -->
+<section class="productos-sec" id="productos">
+  <div class="sec-header">
+    <span class="eyebrow">Catálogo</span>
+    <h2>Nuestros Productos</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="filtrar('todos', this)">Todos</button>
+    <button class="tab" onclick="filtrar('chacinas', this)">Chacinas</button>
+    <button class="tab" onclick="filtrar('carnes', this)">Carnes</button>
+    <button class="tab" onclick="filtrar('otros', this)">Otros</button>
+  </div>
+  <div class="productos-grid" id="prodGrid"></div>
+</section>
+
+<!-- PROCESO -->
+<section class="proceso-sec" id="proceso">
+  <div id="procBg" style="position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.07;"></div>
+  <div class="sec-header" style="position:relative;z-index:1;">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Del campo a tu mesa</span>
+    <h2>Nuestro Proceso</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="proceso-pasos">
+    <div class="paso">
+      <div class="paso-num">01</div>
+      <div class="paso-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 8v4l2 2"/></svg>
+      </div>
+      <h4>Cría en Libertad</h4>
+      <p>Nuestros cerdos ibéricos se crían en total libertad en la dehesa de Aznalcóllar, alimentándose de bellotas durante la montanera.</p>
+    </div>
+    <div class="paso">
+      <div class="paso-num">02</div>
+      <div class="paso-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2L12 8M8 5l4-3 4 3"/><path d="M5 12h14M5 12a7 7 0 0 0 14 0"/></svg>
+      </div>
+      <h4>Montanera Natural</h4>
+      <p>Durante los meses de otoño e invierno, los animales engordan con las bellotas de nuestras encinas centenarias, logrando una carne insuperable.</p>
+    </div>
+    <div class="paso">
+      <div class="paso-num">03</div>
+      <div class="paso-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+      </div>
+      <h4>Curación Artesanal</h4>
+      <p>En Aracena, Sierra de Huelva, curamos nuestras piezas de forma artesanal, respetando los tiempos naturales de maduración.</p>
+    </div>
+    <div class="paso">
+      <div class="paso-num">04</div>
+      <div class="paso-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20 12V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v6m0 0v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6m-16 0h16"/></svg>
+      </div>
+      <h4>Entrega en Casa</h4>
+      <p>Enviamos directamente a tu puerta, con el mismo cuidado con que cuidamos cada pieza. Sin intermediarios, del productor al consumidor.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CESTAS -->
+<section class="cestas-sec" id="cestas">
+  <div class="sec-header">
+    <span class="eyebrow">Regalo perfecto</span>
+    <h2>Cestas y Regalos</h2>
+    <div class="divider"></div>
+  </div>
+  <p style="text-align:center;color:var(--gris);max-width:580px;margin:0 auto 3rem;font-size:0.95rem;">Preparamos cestas a medida con los mejores productos ibéricos. Ideales para regalar o para compartir en cualquier ocasión especial. Contáctanos y diseñamos tu cesta personalizada.</p>
+  <div class="cestas-grid" id="cestasGrid"></div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="https://wa.me/34695217339?text=Hola%20Marta!%20Me%20interesa%20una%20cesta%20personalizada." target="_blank" class="btn btn-verde">Pedir Cesta Personalizada</a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto-sec" id="contacto">
+  <div class="sec-header">
+    <span class="eyebrow">Escríbenos</span>
+    <h2>Contacto</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contacto-inner">
+    <div class="contacto-info">
+      <span class="eyebrow">Información</span>
+      <h2>¿Tienes alguna pregunta?</h2>
+      <p>Puedes contactarnos por WhatsApp, llamada o email. Estaremos encantados de atenderte y asesorarte sobre nuestros productos.</p>
+      <div class="contacto-dato">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
+        <div class="txt"><strong>Teléfono / WhatsApp</strong>+34 695 217 339 · Marta Moya Espinosa</div>
+      </div>
+      <div class="contacto-dato">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+        <div class="txt"><strong>Email</strong>martamoyaespinosa@gmail.com</div>
+      </div>
+      <div class="contacto-dato">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+        <div class="txt"><strong>Ubicación</strong>Dehesa El Torilejos · Aznalcóllar, Sevilla</div>
+      </div>
+      <div class="pago-info">
+        <h4>Formas de Pago Disponibles</h4>
+        <p>💳 Tarjeta (pago online seguro)</p>
+        <p>📱 Bizum: 695 217 339</p>
+        <p>🏦 Transferencia: ES10 3187 0883 3254 9859 9520 (Caja Rural)</p>
+        <p>💵 Efectivo (recogida en persona)</p>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Envíanos un mensaje</h3>
+      <div class="form-row">
+        <div class="fg"><label>Nombre *</label><input type="text" id="cNombre" placeholder="Tu nombre"></div>
+        <div class="fg"><label>Teléfono *</label><input type="tel" id="cTel" placeholder="600 000 000"></div>
+      </div>
+      <div class="fg"><label>Email *</label><input type="email" id="cEmail" placeholder="tu@email.com"></div>
+      <div class="fg"><label>Asunto</label>
+        <select id="cAsunto">
+          <option>Consulta sobre productos</option>
+          <option>Pedido personalizado</option>
+          <option>Cesta de regalo</option>
+          <option>Información de envío</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="fg"><label>Mensaje *</label><textarea id="cMsg" placeholder="Escribe tu mensaje aquí..."></textarea></div>
+      <button class="btn btn-verde" style="width:100%;padding:1rem;" onclick="enviarContacto()">Enviar Mensaje</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="f-name">MARTA MOYA IBÉRICOS</span>
+      <span class="f-sub">Dehesa El Torilejos</span>
+      <p>Producción familiar artesanal de ibéricos de bellota desde la dehesa sevillana de Aznalcóllar hasta tu mesa, con el cuidado y la pasión de siempre.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Productos</h4>
+      <ul>
+        <li><a href="#productos">Chacinas</a></li>
+        <li><a href="#productos">Jamones y Paletillas</a></li>
+        <li><a href="#productos">Carnes Frescas</a></li>
+        <li><a href="#cestas">Cestas de Regalo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>La Empresa</h4>
+      <ul>
+        <li><a href="#historia">Nuestra Historia</a></li>
+        <li><a href="#proceso">Nuestro Proceso</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="tel:+34695217339">+34 695 217 339</a></li>
+        <li><a href="mailto:martamoyaespinosa@gmail.com">martamoyaespinosa@gmail.com</a></li>
+        <li><a href="https://wa.me/34695217339" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Marta Moya Ibéricos · Dehesa El Torilejos. Todos los derechos reservados.</span>
+    <span>IVA no incluido en los precios mostrados</span>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/34695217339?text=Hola%20Marta!%20Me%20interesa%20hacer%20un%20pedido." 
+   target="_blank" class="whatsapp-fab" title="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 1C7.716 1 1 7.716 1 16c0 2.628.672 5.1 1.852 7.256L1 31l7.9-1.832A14.938 14.938 0 0016 31c8.284 0 15-6.716 15-15S24.284 1 16 1zm0 27.4a12.354 12.354 0 01-6.3-1.718l-.452-.268-4.686 1.086 1.116-4.564-.294-.468A12.4 12.4 0 1116 28.4zm6.8-9.286c-.372-.186-2.2-1.086-2.542-1.208-.342-.122-.59-.186-.838.186-.248.372-.964 1.208-1.182 1.456-.218.248-.434.28-.806.094-.372-.186-1.57-.578-2.99-1.842-1.106-.984-1.852-2.2-2.07-2.572-.218-.372-.024-.572.164-.758.168-.168.372-.434.558-.652.186-.218.248-.372.372-.62.124-.248.062-.466-.032-.652-.094-.186-.838-2.014-1.148-2.758-.302-.728-.608-.628-.838-.64l-.714-.012c-.248 0-.652.094-.992.466-.342.372-1.302 1.272-1.302 3.1s1.332 3.6 1.518 3.848c.186.248 2.62 4 6.35 5.61.888.384 1.58.612 2.12.782.892.284 1.704.244 2.346.148.716-.108 2.2-.9 2.512-1.768.31-.868.31-1.61.216-1.768-.09-.154-.338-.248-.71-.434z"/>
+  </svg>
+</a>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-head">
+    <h3>Su Cesta</h3>
+    <button class="cart-close" onclick="toggleCart()">×</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg>
+      <p>Su cesta está vacía</p>
+    </div>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none;">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span id="cartTotal">0,00 €</span>
+    </div>
+    <p class="cart-note">IVA no incluido. Envío a consultar según destino.</p>
+    <button class="btn-checkout" onclick="openCheckout()">Finalizar Pedido →</button>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Finalizar Pedido</h2>
+      <button class="modal-close" onclick="closeCheckout()">×</button>
+    </div>
+    <div class="modal-section">
+      <h4>Datos de contacto</h4>
+      <div class="form-row">
+        <div class="fg"><label>Nombre *</label><input type="text" id="oNombre"></div>
+        <div class="fg"><label>Teléfono *</label><input type="tel" id="oTel"></div>
+      </div>
+      <div class="fg"><label>Email *</label><input type="email" id="oEmail"></div>
+      <div class="fg"><label>Dirección de envío *</label><input type="text" id="oDireccion" placeholder="Calle, número, piso, ciudad, CP"></div>
+    </div>
+    <div class="modal-section">
+      <h4>Resumen del pedido</h4>
+      <div id="resumenPedido"></div>
+    </div>
+    <div class="modal-section">
+      <h4>Método de pago</h4>
+      <label class="pay-opt selected" onclick="selPago(this,'transfer')">
+        <input type="radio" name="pago" value="transfer" checked>
+        <div><div class="pay-opt-name">🏦 Transferencia Bancaria</div><div class="pay-opt-info">ES10 3187 0883 3254 9859 9520 (Caja Rural)</div></div>
+      </label>
+      <label class="pay-opt" onclick="selPago(this,'bizum')">
+        <input type="radio" name="pago" value="bizum">
+        <div><div class="pay-opt-name">📱 Bizum</div><div class="pay-opt-info">695 217 339 · Marta Moya</div></div>
+      </label>
+      <label class="pay-opt" onclick="selPago(this,'cash')">
+        <input type="radio" name="pago" value="cash">
+        <div><div class="pay-opt-name">💵 Efectivo</div><div class="pay-opt-info">Pago en persona al recoger o recibir el pedido</div></div>
+      </label>
+      <label class="pay-opt" onclick="selPago(this,'whatsapp')">
+        <input type="radio" name="pago" value="whatsapp">
+        <div><div class="pay-opt-name">💬 Coordinar por WhatsApp</div><div class="pay-opt-info">Te contactamos para acordar el pago</div></div>
+      </label>
+    </div>
+    <button class="btn btn-verde" style="width:100%;padding:1.1rem;" onclick="confirmarPedido()">Confirmar Pedido</button>
+    <button onclick="closeCheckout()" style="width:100%;padding:0.8rem;margin-top:0.8rem;background:none;border:1px solid var(--crema-oscura);cursor:pointer;font-family:Raleway,sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gris);">Volver a la cesta</button>
+  </div>
+</div>
+
+<!-- NOTIFICATION -->
+<div class="notif" id="notif"></div>
+
+<script>
+// ── IMÁGENES EMBEBIDAS ──
+const IMG = {
+  hero:       "img_hero.jpg",
+  historia:   "img_historia.jpg",
+  cerdos:     "img_cerdos.jpg",
+  papada:     "img_papada.jpg",
+  chorizos:   "img_chorizos.jpg",
+  chorizos2:  "img_chorizos2.jpg",
+  morcones:   "img_morcones.jpg",
+  salchichones: "img_salchichones.jpg",
+  jamon_loncheado: "img_jamon_loncheado.jpg",
+  jamones_bodega: "img_jamones_bodega.jpg",
+  jamones_colgados: "img_jamones_colgados.jpg",
+  cesta1:     "img_cesta1.jpg",
+  cesta2:     "img_cesta2.jpg",
+  cesta3:     "img_cesta3.jpg",
+};
+
+// ── SET DYNAMIC IMAGES ──
+document.getElementById("heroBg").style.backgroundImage = `url(${IMG.hero})`;
+document.getElementById("historiaImg").src = IMG.historia;
+document.getElementById("procBg").style.backgroundImage = `url(${IMG.cerdos})`;
+
+// GALERÍA
+const galeriaFotos = [
+  {src: IMG.jamones_colgados, alt: "Jamones ibéricos"},
+  {src: IMG.chorizos, alt: "Chorizos artesanales"},
+  {src: IMG.jamon_loncheado, alt: "Jamón loncheado"},
+  {src: IMG.morcones, alt: "Morcones ibéricos"},
+  {src: IMG.papada, alt: "Papada ibérica"},
+  {src: IMG.salchichones, alt: "Salchichones"},
+  {src: IMG.chorizos2, alt: "Elaboración artesanal"},
+  {src: IMG.jamones_bodega, alt: "Bodega de curación"},
+];
+const gg = document.getElementById("galeriaGrid");
+galeriaFotos.slice(0,8).forEach((f,i) => {
+  const div = document.createElement("div");
+  div.className = "galeria-item";
+  div.innerHTML = `<img src="${f.src}" alt="${f.alt}" loading="lazy">`;
+  gg.appendChild(div);
+});
+
+// CESTAS
+const cestasData = [
+  {src: IMG.cesta1, title: "Cesta Clásica", sub: "Lo mejor de nuestra dehesa"},
+  {src: IMG.cesta2, title: "Cesta Premium", sub: "Jamón, vino y mucho más"},
+  {src: IMG.cesta3, title: "Cesta Especial", sub: "Personalízala a tu gusto"},
+];
+const cg = document.getElementById("cestasGrid");
+cestasData.forEach(c => {
+  const div = document.createElement("div");
+  div.className = "cesta-card";
+  div.innerHTML = `
+    <img src="${c.src}" alt="${c.title}" loading="lazy">
+    <div class="cesta-overlay">
+      <div class="cesta-title">${c.title}</div>
+      <div class="cesta-sub">${c.sub}</div>
+      <a class="cesta-cta" href="https://wa.me/34695217339?text=Hola%20Marta!%20Me%20interesa%20una%20cesta%20personalizada." target="_blank">Consultar precio →</a>
+    </div>`;
+  cg.appendChild(div);
+});
+
+// ── PRODUCTOS ──
+const productos = [
+  // CHACINAS
+  {id:1,  nombre:"Papada de bellota 100% ibérico",              cat:"chacinas", precio:22, unit:"kg", peso:"100g/ud",       p100g:4,    tag:"Chacina",   img:IMG.papada},
+  {id:2,  nombre:"Morcilla de bellota 100% ibérico",            cat:"chacinas", precio:17, unit:"kg", peso:"250-300g/ud",               tag:"Chacina",   img:IMG.chorizos},
+  {id:3,  nombre:"Chorizo de bellota 100% ibérico",             cat:"chacinas", precio:23, unit:"kg", peso:"250-300g",                   tag:"Chacina",   img:IMG.chorizos},
+  {id:4,  nombre:"Chorizo picante de bellota 100% ibérico",     cat:"chacinas", precio:23, unit:"kg", peso:"250-300g",                   tag:"Picante",   img:IMG.chorizos2},
+  {id:5,  nombre:"Morcón de bellota 100% ibérico",              cat:"chacinas", precio:26, unit:"kg", peso:"700g-1kg",                   tag:"Chacina",   img:IMG.morcones},
+  {id:6,  nombre:"Salchichón de bellota 100% ibérico",          cat:"chacinas", precio:23, unit:"kg", peso:"150-200g",                   tag:"Chacina",   img:IMG.salchichones},
+  {id:7,  nombre:"Sobrasada de bellota 100% ibérico",           cat:"chacinas", precio:18, unit:"kg", peso:"250-300g",                   tag:"Chacina",   img:IMG.chorizos2},
+  {id:8,  nombre:"Jamón de bellota 100% ibérico",               cat:"chacinas", precio:45, unit:"kg",                      p100g:14,   tag:"Premium",   img:IMG.jamon_loncheado},
+  {id:9,  nombre:"Paletilla de bellota 100% ibérico",           cat:"chacinas", precio:29, unit:"kg",                      p100g:11.5, tag:"Premium",   img:IMG.jamones_colgados},
+  {id:10, nombre:"Caña de lomo 100% ibérico de bellota",        cat:"chacinas", precio:56, unit:"kg", peso:"500g-1.1kg",                 tag:"Premium",   img:IMG.chorizos},
+  {id:11, nombre:"Caña de lomo 50% ibérico de bellota",         cat:"chacinas", precio:50, unit:"kg", peso:"500g-1.1kg",                 tag:"Chacina",   img:IMG.chorizos},
+  {id:12, nombre:"Lomo de presa de bellota 100% ibérico",       cat:"chacinas", precio:65, unit:"kg", peso:"200-500g",                   tag:"Exclusivo", img:IMG.chorizos2},
+  {id:13, nombre:"Panceta de bellota 100% ibérico",             cat:"chacinas", precio:22, unit:"kg", peso:"1kg aprox.",                 tag:"Chacina",   img:IMG.papada},
+  // CARNES
+  {id:14, nombre:"Carrillera de bellota 100% ibérica",          cat:"carnes",   precio:18, unit:"kg", peso:"500g-1kg/ud",                tag:"Carne",     img:IMG.chorizos},
+  {id:15, nombre:"Lagarto de bellota 100% ibérico",             cat:"carnes",   precio:22, unit:"kg", peso:"500g-1kg/ud",                tag:"Carne",     img:IMG.chorizos2},
+  {id:16, nombre:"Solomillo de bellota 100% ibérico",           cat:"carnes",   precio:24, unit:"kg", peso:"500g-1kg/ud",                tag:"Premium",   img:IMG.morcones},
+  {id:17, nombre:"Abanico de bellota 100% ibérico",             cat:"carnes",   precio:22, unit:"kg", peso:"500g-1kg/ud",                tag:"Carne",     img:IMG.salchichones},
+  {id:18, nombre:"Pluma de bellota 100% ibérica",               cat:"carnes",   precio:29, unit:"kg", peso:"500g-1kg/ud",                tag:"Premium",   img:IMG.chorizos},
+  {id:19, nombre:"Secreto de bellota 100% ibérico",             cat:"carnes",   precio:26, unit:"kg", peso:"500g-1kg/ud",                tag:"Premium",   img:IMG.chorizos2},
+  {id:20, nombre:"Castañeta de bellota 100% ibérica",           cat:"carnes",   precio:15, unit:"kg", peso:"500g-1kg/ud",                tag:"Carne",     img:IMG.morcones},
+  {id:21, nombre:"Costilla de bellota 100% ibérica",            cat:"carnes",   precio:11, unit:"kg", peso:"1kg/ud",                     tag:"Carne",     img:IMG.salchichones},
+  {id:22, nombre:"Hígado de bellota 100% ibérico",              cat:"carnes",   precio:6,  unit:"kg", peso:"500g/ud",                    tag:"Carne",     img:IMG.chorizos},
+  {id:23, nombre:"Riñones de bellota 100% ibérico",             cat:"carnes",   precio:6,  unit:"kg", peso:"500g/ud",                    tag:"Carne",     img:IMG.chorizos2},
+  // OTROS
+  {id:24, nombre:"Miel de flores El Torilejos",                 cat:"otros",    precio:11, unit:"kg", peso:"6€/0.5kg · 11€/kg · 18€/2kg", tag:"Artesanal", img:IMG.cesta1},
+  {id:25, nombre:"Lecco Roble 2022 · Ribera del Duero",         cat:"otros",    precio:8,  unit:"ud",                                    tag:"Vino",      img:IMG.cesta2},
+  {id:26, nombre:"Aceite de oliva virgen extra D.O.P. Sierra Mágina", cat:"otros", precio:8.5, unit:"500ml", peso:"5€/250ml · 8.5€/500ml", tag:"D.O.P.", img:IMG.cesta3},
+];
+
+let carrito = [];
+
+function getTagClass(tag) {
+  if(['Premium','Exclusivo'].includes(tag)) return tag.toLowerCase();
+  return '';
+}
+
+function renderProductos(cat) {
+  const list = cat === 'todos' ? productos : productos.filter(p => p.cat === cat);
+  const grid = document.getElementById('prodGrid');
+  grid.innerHTML = list.map(p => `
+    <div class="producto-card">
+      <div class="prod-img">
+        <span class="prod-tag ${getTagClass(p.tag)}">${p.tag}</span>
+        <img src="${p.img}" alt="${p.nombre}" loading="lazy">
+      </div>
+      <div class="prod-info">
+        <div class="prod-name">${p.nombre}</div>
+        <div class="prod-peso">${p.peso || ''}</div>
+        <div class="prod-footer">
+          <div class="prod-precio">
+            ${p.precio} € <span class="unit">/${p.unit}</span>
+            ${p.p100g ? `<span class="p100g">≈ ${p.p100g}€ / 100g</span>` : ''}
+          </div>
+          <button class="btn-add" onclick="addToCart(${p.id})">+ Añadir</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filtrar(cat, btn) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProductos(cat);
+}
+
+renderProductos('todos');
+
+// ── CARRITO ──
+function addToCart(id) {
+  const p = productos.find(x => x.id === id);
+  const ex = carrito.find(x => x.id === id);
+  if(ex) ex.qty++; else carrito.push({...p, qty:1});
+  updateCart();
+  showNotif(`✓ "${p.nombre}" añadido a la cesta`);
+}
+function removeFromCart(id) {
+  carrito = carrito.filter(x => x.id !== id);
+  updateCart();
+}
+function changeQty(id, d) {
+  const item = carrito.find(x => x.id === id);
+  if(!item) return;
+  item.qty += d;
+  if(item.qty <= 0) removeFromCart(id);
+  else updateCart();
+}
+
+function updateCart() {
+  const total = carrito.reduce((s,i) => s + i.precio * i.qty, 0);
+  const count = carrito.reduce((s,i) => s + i.qty, 0);
+  document.getElementById('cartCount').textContent = count;
+  const body = document.getElementById('cartBody');
+  const foot = document.getElementById('cartFoot');
+  if(carrito.length === 0) {
+    body.innerHTML = `<div class="cart-empty-state"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg><p>Su cesta está vacía</p></div>`;
+    foot.style.display = 'none';
+  } else {
+    body.innerHTML = carrito.map(i => `
+      <div class="cart-item">
+        <div class="cart-item-img"><img src="${i.img}" alt="${i.nombre}"></div>
+        <div class="cart-item-body">
+          <div class="cart-item-name">${i.nombre}</div>
+          <div class="cart-item-price">${i.precio} €/${i.unit}</div>
+          <div class="cart-item-qty">
+            <button onclick="changeQty(${i.id},-1)">−</button>
+            <span>${i.qty}</span>
+            <button onclick="changeQty(${i.id},1)">+</button>
+            <button class="cart-item-del" onclick="removeFromCart(${i.id})">Eliminar</button>
+          </div>
+        </div>
+      </div>`).join('');
+    foot.style.display = 'block';
+    document.getElementById('cartTotal').textContent = total.toFixed(2).replace('.',',') + ' €';
+  }
+}
+
+function toggleCart() {
+  document.getElementById('cartPanel').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+function closeAll() {
+  document.getElementById('cartPanel').classList.remove('open');
+  document.getElementById('checkoutModal').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+
+// ── CHECKOUT ──
+function openCheckout() {
+  closeAll();
+  const total = carrito.reduce((s,i) => s + i.precio * i.qty, 0);
+  document.getElementById('resumenPedido').innerHTML =
+    carrito.map(i => `<div class="resumen-item"><span>${i.nombre} ×${i.qty}</span><span>${(i.precio*i.qty).toFixed(2)} €</span></div>`).join('') +
+    `<div class="resumen-total"><span>Total (IVA no incl.)</span><span>${total.toFixed(2).replace('.',',')} €</span></div>`;
+  document.getElementById('checkoutModal').classList.add('open');
+}
+function closeCheckout() {
+  document.getElementById('checkoutModal').classList.remove('open');
+}
+function selPago(el, val) {
+  document.querySelectorAll('.pay-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+}
+
+function confirmarPedido() {
+  const nombre = document.getElementById('oNombre').value.trim();
+  const tel = document.getElementById('oTel').value.trim();
+  const email = document.getElementById('oEmail').value.trim();
+  const dir = document.getElementById('oDireccion').value.trim();
+  if(!nombre || !tel || !email || !dir) { showNotif('⚠ Por favor, rellena todos los campos obligatorios'); return; }
+
+  const pago = document.querySelector('input[name="pago"]:checked').value;
+  const total = carrito.reduce((s,i) => s + i.precio * i.qty, 0);
+  const productos_txt = carrito.map(i => `- ${i.nombre} x${i.qty}: ${(i.precio*i.qty).toFixed(2)}€`).join('%0A');
+  const metodo = {transfer:'Transferencia bancaria',bizum:'Bizum',cash:'Efectivo',whatsapp:'WhatsApp'}[pago];
+
+  if(pago === 'whatsapp') {
+    const msg = `Hola Marta! Quiero hacer un pedido:%0A%0A${productos_txt}%0A%0ATotal: ${total.toFixed(2)}€ (IVA no incl.)%0A%0ANombre: ${nombre}%0ATel: ${tel}%0ADirección: ${dir}`;
+    window.open(`https://wa.me/34695217339?text=${msg}`, '_blank');
+  } else {
+    let msg = `¡Gracias, ${nombre}! Tu pedido ha sido registrado.
+
+Total: ${total.toFixed(2)} € (IVA no incluido)
+
+`;
+    if(pago === 'transfer') msg += 'Realiza la transferencia a:
+ES10 3187 0883 3254 9859 9520 (Caja Rural)
+Concepto: tu nombre';
+    if(pago === 'bizum') msg += 'Envía el Bizum al 695 217 339
+Concepto: tu nombre';
+    if(pago === 'cash') msg += 'Te contactaremos para coordinar la entrega y el pago en efectivo.';
+    alert(msg);
+  }
+  carrito = [];
+  updateCart();
+  closeCheckout();
+  showNotif('✓ Pedido enviado correctamente');
+}
+
+// ── CONTACTO ──
+function enviarContacto() {
+  const n = document.getElementById('cNombre').value.trim();
+  const t = document.getElementById('cTel').value.trim();
+  const e = document.getElementById('cEmail').value.trim();
+  const m = document.getElementById('cMsg').value.trim();
+  if(!n || !t || !e || !m) { showNotif('⚠ Por favor, rellena todos los campos obligatorios'); return; }
+  const asunto = document.getElementById('cAsunto').value;
+  const msg = `Hola Marta! Te escribo desde la web.%0A%0AAsunto: ${asunto}%0ANombre: ${n}%0ATel: ${t}%0AEmail: ${e}%0A%0AMensaje: ${m}`;
+  window.open(`https://wa.me/34695217339?text=${msg}`, '_blank');
+  showNotif('✓ Redirigiendo a WhatsApp...');
+}
+
+// ── UTILS ──
+function showNotif(txt) {
+  const n = document.getElementById('notif');
+  n.textContent = txt;
+  n.classList.add('show');
+  setTimeout(() => n.classList.remove('show'), 3500);
+}
+function toggleMenu() {
+  document.getElementById('mainNav').classList.toggle('open');
+}
+</script>
+</body>
+</html>
